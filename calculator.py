@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
-# 2018-03-20
+# -*- coding: UTF-8 -*-
+# 2018-03-24
 # Personal Tax Calculator
 
 import sys
 
-# Tax Threshold
+# 个税计算公式：
+# 1. 应纳税所得额 = 工资金额 - 各项社会保险 - 起征点（3500元）
+# 2. 应纳税额 = 应纳税所得额 * 税率 - 速算扣除数
+# 公式1中的“各项社会保险费”暂不考虑。
+
+# 个税起征点
 proint = int(3500)
 
-# Exception Handling
+# 异常处理：参数数量不准确、输入为负数、输入内容无法转成整数型，都需要打印参数错误提示。
 try:
-    str = sys.argv[1]
+    len(sys.argv) == 2    # 参数个数必须为2（连同参数名称在内）
+    gongzi != 0    # 输入工资不能<=0
+    gongzi = int(sys.argv[1])    # 输入的“工资字符”必须能转成整型 
+    
 except:
     print("Parameter Error")
 
