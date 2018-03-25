@@ -14,7 +14,7 @@ import sys    # 导入系统模块
 # Salary：薪水；
 # Taxable Income：应纳税所得额，简写为“TI”；
 # Tax Payable：应纳税额，简写为“TP”；
-# Tax Threshold：个税起征点；
+# Tax Threshold：个税起征点,简写为“TT”；
 
 TI = 'Taxable Income'    # 命名TI为应纳税所得额；
 TP = 'Tax Payable'    # 命名TP为应纳税额；
