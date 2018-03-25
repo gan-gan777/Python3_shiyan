@@ -19,19 +19,17 @@ import sys    # 导入系统模块
 # 异常处理：用户输入的参数必须为单个的、正确的工资数额！参数数量不准确、输入为负数、输入内容无法转成整数型，都需要打印参数错误提示。
 try:
     len(sys.argv) == 2    # 参数个数必须为2（连同参数名称在内）
-    Salary > 0    # 输入工资不能<=0
     Salary = int(sys.argv[1])    # 输入的“工资字符”必须能转成整型 
-    
-except:
-    print("Parameter Error")
+    assert Salary > 0    # 输入工资必须>0
+except ValueError:
+    print('数据类型错误')
+    exit()
+except AssertionError:
+    print('输入工资必须>0')
+    exit()
 
-
-TI = 'Taxable Income'    # 命名TI为应纳税所得额；
-TP = 'Tax Payable'    # 命名TP为应纳税额；
-TT = 'Tax Threshold'    # 命名TT为个税起征点；
+TT = 3500    # 个税起征点数值；
 TI = int(Salary) - TT    # 应纳税所得额公式；
-TT = int(3500)    # 个税起征点数值；
-
 
 if TI <= 0:
     print(format(0,".2f"))
