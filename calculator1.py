@@ -23,20 +23,20 @@ TT = int(3500)    # 纳税起征点金额
 # Tax Threshold：个税起征点,简写为“TT”；
 
 # 税后工资计算公式
-def furmula(Pre_wages, rapid, tax_rate):
+def furmula(Pre_wages, rapid, tax_rate):    # Q01：这是啥意思？
     try:
         ins_amount = Pre_wages * insurance    # 五险一金费用总额
         TI = Pre_wages - ins_amount - TT    # 应纳税所得额计算公式
         TP = TI * tax_rate - rapid    # 应纳税额计算公式
         Aft_wages = format((Pre_wages - ins_amount - TP), ".2f")    # 税后工资计算公式
-        return Aft_wages
+        return Aft_wages    # Q02：这是啥意思？
     except:
         print("参数错误")
 
 # 多员工工资计算
 def calc(id, Aft_wages):
     TI = Pre_wages - ins_amount - TT
-    Aft_wages_dict = {}
+    Aft_wages_dict = {}    # Q03：这是啥意思？
     if TI <= 0:
         Aft_wages = furmula(Pre_wages, 0, 0)
     elif TI > 0 and TI <= 1500:
@@ -53,11 +53,11 @@ def calc(id, Aft_wages):
         Aft_wages = furmula(Pre_wages, 5505, 0.35)
     elif TI > 80000:
         Aft_wages = furmula(Pre_wages, 13505, 0.45)
-    print(id, end='')
+    print(id, end='')   # Q04：end=''是啥意思？
     print(':', end='')
     print(Aft_wages)
 
 # 用户传参
 for arg in sys.argv[1:]:
-    deployee_list = arg.split(':')
+    deployee_list = arg.split(':')    # Q05：arg.split是啥意思？
     calc(int(deployee_list[0]), int(deployee_list[1]))
