@@ -23,7 +23,7 @@ TT = int(3500)    # 纳税起征点金额
 # Tax Threshold：个税起征点,简写为“TT”；
 
 # 税后工资计算公式
-def furmula(Pre_wages, rapid, tax_rate)
+def furmula(Pre_wages, rapid, tax_rate):
     try:
         ins_amount = Pre_wages * insurance    # 五险一金费用总额
         TI = Pre_wages - ins_amount - TT    # 应纳税所得额计算公式
@@ -34,12 +34,12 @@ def furmula(Pre_wages, rapid, tax_rate)
         print("参数错误")
 
 # 多员工工资计算
-def Calc(id, Aft_wages)
+def calc(id, Aft_wages):
     TI = Pre_wages - ins_amount - TT
     Aft_wages_dict = {}
     if TI <= 0:
         Aft_wages = furmula(Pre_wages, 0, 0)
-    elif TI > 0 and <= 1500:
+    elif TI > 0 and TI <= 1500:
         Aft_wages = furmula(Pre_wages, 0, 0.03)
     elif TI > 1500 and TI <= 4500:
         Aft_wages = furmula(Pre_wages, 105, 0.1)
